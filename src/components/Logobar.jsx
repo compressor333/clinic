@@ -21,7 +21,6 @@ export default function LogoBar() {
         <>
             {/* Первый уровень - прозрачный с логотипом по центру */}
             <AppBar
-                position="fixed"
                 elevation={0}
                 sx={{
                     backdropFilter: "blur(30px)",
@@ -29,17 +28,22 @@ export default function LogoBar() {
                     top: 0,
                 }}
             >
-                <Toolbar>
-                    <Box sx={{ flex: 1 }} />
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <img src={logo} alt="logo" style={{ height: 40 }} />
+                <Toolbar sx={{
+                    minHeight: {
+                        sm: '56px !important', // Переопределяем медиа-запрос
+                        md: '64px !important'
+                    },
+                }}>
+                    <Box sx={{flex: 1}}/>
+                    <Box sx={{display: 'flex', alignItems: 'center', gap: 1}}>
+                        <img src={logo} alt="logo" style={{height: 40}}/>
                         <Typography
                             sx={{
                                 fontSize: 20,
                                 fontWeight: 200,
                                 lineHeight: 1.1,
                                 whiteSpace: 'nowrap',
-                                display: { xs: "block", md: "block" }
+                                display: {xs: "block", md: "block"}
                             }}
                         >
                             Наркологическая Клиника Вимас
@@ -55,11 +59,11 @@ export default function LogoBar() {
                                 }
                             }}
                         >
-                            <LocationOnIcon />
+                            <LocationOnIcon/>
                             Магадан
                         </IconButton>
                     </Box>
-                    <Box sx={{ flex: 1 }} />
+                    <Box sx={{flex: 1}}/>
                 </Toolbar>
             </AppBar>
             {/* Общий отступ для контента */}
