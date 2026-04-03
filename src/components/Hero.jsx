@@ -218,7 +218,7 @@ const HeroSection = memo(() => {
                                         borderRadius: "15px",
                                     }}
                                 >
-                                    <EmergencyIcon sx={{ color: "#4B7BFF" }} />
+                                    <EmergencyIcon sx={{ color: "#4B7BFF", mt: "20px" }} />
                                     <Box>
                                         <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)" }}>
                                             Круглосуточная горячая линия
