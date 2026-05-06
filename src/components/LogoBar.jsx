@@ -25,7 +25,7 @@ export default function LogoBar() {
                 elevation={0}
                 sx={{
                     backdropFilter: "blur(30px)",
-                    color: 'white',
+                    color: 'var(--color-white)',
                     top: 0,
                 }}
             >
@@ -51,7 +51,7 @@ export default function LogoBar() {
                                 px: 1,
                                 py: 0.5,
                                 '&:hover': {
-                                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                    backgroundColor: 'rgba(var(--color-white-rgb), 0.1)',
                                 },
                             }}
                         >
@@ -71,11 +71,11 @@ export default function LogoBar() {
                         <IconButton
                             onClick={handleLocationClick}
                             sx={{
-                                color: 'white',
+                                color: 'var(--color-white)',
                                 fontSize: 18,
                                 fontWeight: 100,
                                 '&:hover': {
-                                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                    backgroundColor: 'rgba(var(--color-white-rgb), 0.1)',
                                 }
                             }}
                         >

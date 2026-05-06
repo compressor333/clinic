@@ -33,15 +33,15 @@ const HeroSection = memo(() => {
                 startIcon={<PhoneIcon />}
                 href="tel:+79991234567"
                 sx={{
-                    background: "linear-gradient(45deg, #4B7BFF 30%, #6E9EFF 90%)",
-                    color: "white",
+                    background: "linear-gradient(45deg, var(--color-primary) 30%, var(--color-primary-light) 90%)",
+                    color: "var(--color-white)",
                     fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                     py: HERO_SPACING.buttonPaddingY,
                     px: HERO_SPACING.buttonPaddingX,
                     borderRadius: "60px",
                     whiteSpace: "nowrap",
                     "&:hover": {
-                        background: "linear-gradient(45deg, #3A5FCC 30%, #4B7BFF 90%)",
+                        background: "linear-gradient(45deg, var(--color-primary-dark) 30%, var(--color-primary) 90%)",
                         transform: "translateY(-2px)",
                     },
                 }}
@@ -54,16 +54,16 @@ const HeroSection = memo(() => {
                 size="large"
                 endIcon={<ArrowForwardIcon />}
                 sx={{
-                    color: "white",
-                    borderColor: "rgba(255, 255, 255, 0.5)",
+                    color: "var(--color-white)",
+                    borderColor: "rgba(var(--color-white-rgb), 0.5)",
                     fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                     py: HERO_SPACING.buttonPaddingY,
                     px: HERO_SPACING.buttonPaddingX,
                     borderRadius: "60px",
                     whiteSpace: "nowrap",
                     "&:hover": {
-                        borderColor: "white",
-                        backgroundColor: "rgba(255, 255, 255, 0.1)",
+                        borderColor: "var(--color-white)",
+                        backgroundColor: "rgba(var(--color-white-rgb), 0.1)",
                     },
                 }}
             >
@@ -92,7 +92,7 @@ const HeroSection = memo(() => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: "radial-gradient(circle at 30% 50%, rgba(75, 123, 255, 0.2) 0%, transparent 70%)",
+                    background: "radial-gradient(circle at 30% 50%, rgba(var(--color-primary-rgb), 0.2) 0%, transparent 70%)",
                     zIndex: 1,
                     animation: "pulse 8s infinite ease-in-out",
                     "@media (prefers-reduced-motion: reduce)": {
@@ -111,11 +111,11 @@ const HeroSection = memo(() => {
                         <Fade in timeout={800}>
                             <Box
                                 sx={{
-                                    backgroundColor: "rgba(0, 0, 0, 0.4)",
+                                    backgroundColor: "rgba(var(--color-black-rgb), 0.4)",
                                     backdropFilter: "blur(15px)",
                                     borderRadius: { xs: "24px", md: "30px" },
                                     p: HERO_SPACING.cardPadding,
-                                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                                    border: "1px solid rgba(var(--color-white-rgb), 0.15)",
                                     textAlign: { xs: "center", md: "left" },
                                 }}
                             >
@@ -138,9 +138,9 @@ const HeroSection = memo(() => {
                                                     icon={benefit.icon}
                                                     label={benefit.text}
                                                     sx={{
-                                                        backgroundColor: "rgba(75, 123, 255, 0.2)",
-                                                        color: "white",
-                                                        border: "1px solid rgba(255, 255, 255, 0.2)",
+                                                        backgroundColor: "rgba(var(--color-primary-rgb), 0.2)",
+                                                        color: "var(--color-white)",
+                                                        border: "1px solid rgba(var(--color-white-rgb), 0.2)",
                                                     }}
                                                 />
                                             </Grow>
@@ -169,7 +169,7 @@ const HeroSection = memo(() => {
                                             sx={{
                                                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem", lg: "1.4rem" },
                                                 fontWeight: 400,
-                                                color: "rgba(255, 255, 255, 0.9)",
+                                                color: "rgba(var(--color-white-rgb), 0.9)",
                                             }}
                                         >
                                             Не оставляйте близкого человека наедине с проблемой -
@@ -188,13 +188,13 @@ const HeroSection = memo(() => {
                                             justifyContent: { xs: "center", md: "flex-start" },
                                             gap: 2,
                                             p: { xs: 1.5, sm: 2.25 },
-                                            backgroundColor: "rgba(0, 0, 0, 0.2)",
+                                            backgroundColor: "rgba(var(--color-black-rgb), 0.2)",
                                             borderRadius: "15px",
                                         }}
                                     >
-                                        <EmergencyIcon sx={{ color: "#4B7BFF", mt: 0.5 }} />
+                                        <EmergencyIcon sx={{ color: "var(--color-primary)", mt: 0.5 }} />
                                         <Box>
-                                            <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)" }}>
+                                            <Typography variant="body2" sx={{ color: "rgba(var(--color-white-rgb), 0.7)" }}>
                                                 Круглосуточная горячая линия
                                             </Typography>
                                             <Typography variant="h6" sx={{ fontWeight: 600 }}>

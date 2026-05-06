@@ -34,7 +34,7 @@ const loadingFallback = (
             justifyContent: "center",
         }}
     >
-        <CircularProgress sx={{ color: "#4B7BFF" }} />
+        <CircularProgress sx={{ color: "var(--color-primary)" }} />
     </Box>
 );
 
