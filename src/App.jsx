@@ -6,24 +6,11 @@ import HeroSection from "./components/Hero";
 import Footer from "./components/Footer";
 import backgroundImage from "./assets/back.png";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import serviceContent from "./pages/serviceContent";
 
 const AboutSection = lazy(() => import("./components/About"));
+const ServicePage = lazy(() => import("./pages/ServicePage.jsx"));
 const NotFound = lazy(() => import("./components/NotFound.jsx"));
-
-const serviceRoutes = [
-    "/alcoholism/withdrawal",
-    "/alcoholism/coding",
-    "/alcoholism/iv",
-    "/alcoholism/rehabilitation",
-    "/addiction/detoxification",
-    "/addiction/ubod",
-    "/addiction/rehabilitation",
-    "/addiction/social-adaptation",
-    "/rehabilitation/inpatient",
-    "/rehabilitation/day-hospital",
-    "/rehabilitation/outpatient",
-    "/rehabilitation/psychotherapy",
-];
 
 const loadingFallback = (
     <Box
@@ -68,8 +55,12 @@ export default function App() {
                         <Routes>
                             <Route path="/" element={<HeroSection />} />
                             <Route path="/about" element={<AboutSection />} />
-                            {serviceRoutes.map((path) => (
-                                <Route key={path} path={path} element={<NotFound />} />
+                            {serviceContent.map((service) => (
+                                <Route
+                                    key={service.path}
+                                    path={service.path}
+                                    element={<ServicePage service={service} />}
+                                />
                             ))}
                             <Route path="*" element={<NotFound />} />
                         </Routes>
