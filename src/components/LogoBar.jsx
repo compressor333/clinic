@@ -6,6 +6,7 @@ import {
     IconButton
 } from "@mui/material";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { Link as RouterLink } from 'react-router-dom';
 
 import logo from "../assets/logo.gif";
 
@@ -36,18 +37,37 @@ export default function LogoBar() {
                 }}>
                     <Box sx={{flex: 1}}/>
                     <Box sx={{display: 'flex', alignItems: 'center', gap: 1}}>
-                        <img src={logo} alt="logo" style={{height: 40}}/>
-                        <Typography
+                        <Box
+                            component={RouterLink}
+                            to="/"
+                            aria-label="Перейти на главную страницу"
                             sx={{
-                                fontSize: 20,
-                                fontWeight: 200,
-                                lineHeight: 1.1,
-                                whiteSpace: 'nowrap',
-                                display: {xs: "block", md: "block"}
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 1,
+                                color: 'inherit',
+                                textDecoration: 'none',
+                                borderRadius: '12px',
+                                px: 1,
+                                py: 0.5,
+                                '&:hover': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                },
                             }}
                         >
-                            Наркологическая Клиника Вимас
-                        </Typography>
+                            <img src={logo} alt="logo" style={{height: 40}}/>
+                            <Typography
+                                sx={{
+                                    fontSize: 20,
+                                    fontWeight: 200,
+                                    lineHeight: 1.1,
+                                    whiteSpace: 'nowrap',
+                                    display: {xs: "block", md: "block"}
+                                }}
+                            >
+                                Наркологическая Клиника Вимас
+                            </Typography>
+                        </Box>
                         <IconButton
                             onClick={handleLocationClick}
                             sx={{
