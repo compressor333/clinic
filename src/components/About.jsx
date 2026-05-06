@@ -12,10 +12,8 @@ import {
     TextField,
     Card,
     CardContent,
-    useMediaQuery,
-    useTheme,
 } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -28,9 +26,6 @@ import RoomIcon from "@mui/icons-material/Room";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 
 export default function Contacts() {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
     // Контактная информация
     const contactInfo = [
         {
@@ -155,13 +150,13 @@ export default function Contacts() {
             />
 
             <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-                <motion.div
+                <Motion.div
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
                 >
                     {/* Заголовок */}
-                    <motion.div variants={itemVariants}>
+                    <Motion.div variants={itemVariants}>
                         <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
                             <Typography
                                 variant="h2"
@@ -200,13 +195,13 @@ export default function Contacts() {
                                 }}
                             />
                         </Box>
-                    </motion.div>
+                    </Motion.div>
 
                     {/* Контактные карточки */}
                     <Grid container spacing={3} sx={{ mb: { xs: 6, md: 8 } }}>
                         {contactInfo.map((contact, index) => (
                             <Grid item xs={12} sm={6} md={3} key={index}>
-                                <motion.div
+                                <Motion.div
                                     variants={cardVariants}
                                     whileHover="hover"
                                     initial="hidden"
@@ -269,7 +264,7 @@ export default function Contacts() {
                                             {contact.content}
                                         </Typography>
                                     </Paper>
-                                </motion.div>
+                                </Motion.div>
                             </Grid>
                         ))}
                     </Grid>
@@ -277,7 +272,7 @@ export default function Contacts() {
                     <Grid container spacing={4}>
                         {/* Адреса филиалов */}
                         <Grid item xs={12} md={6}>
-                            <motion.div variants={itemVariants}>
+                            <Motion.div variants={itemVariants}>
                                 <Paper
                                     elevation={0}
                                     sx={{
@@ -356,12 +351,12 @@ export default function Contacts() {
                                         Построить маршрут
                                     </Button>
                                 </Paper>
-                            </motion.div>
+                            </Motion.div>
                         </Grid>
 
                         {/* Форма обратной связи */}
                         <Grid item xs={12} md={6}>
-                            <motion.div variants={itemVariants}>
+                            <Motion.div variants={itemVariants}>
                                 <Paper
                                     elevation={0}
                                     sx={{
@@ -498,12 +493,12 @@ export default function Contacts() {
                                         </Box>
                                     </Box>
                                 </Paper>
-                            </motion.div>
+                            </Motion.div>
                         </Grid>
                     </Grid>
 
                     {/* Часы работы */}
-                    <motion.div variants={itemVariants}>
+                    <Motion.div variants={itemVariants}>
                         <Paper
                             elevation={0}
                             sx={{
@@ -527,8 +522,8 @@ export default function Contacts() {
                                 </Typography>
                             </Box>
                         </Paper>
-                    </motion.div>
-                </motion.div>
+                    </Motion.div>
+                </Motion.div>
             </Container>
         </Box>
     );
