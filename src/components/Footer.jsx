@@ -44,7 +44,7 @@ export default function Footer() {
                 <Grid container spacing={{ xs: 4, md: 6 }}>
 
                     {/* Колонка 1: Логотип и описание */}
-                    <Grid item xs={12} md={4}>
+                    <Grid size={{ xs: 12, md: 4 }}>
                         <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
                             <img src={logo} alt="Клиника Вимас" style={{ height: 50 }} />
                             <Typography variant="h6" sx={{ fontWeight: 600 }}>
@@ -76,7 +76,7 @@ export default function Footer() {
                     </Grid>
 
                     {/* Колонка 2: Быстрые ссылки */}
-                    <Grid item xs={12} sm={6} md={2}>
+                    <Grid size={{ xs: 12, sm: 6, md: 2 }}>
                         <Typography variant="h6" sx={{ mb: 2, fontSize: "1.1rem", fontWeight: 600 }}>
                             О клинике
                         </Typography>
@@ -99,7 +99,7 @@ export default function Footer() {
                     </Grid>
 
                     {/* Колонка 3: Услуги */}
-                    <Grid item xs={12} sm={6} md={2}>
+                    <Grid size={{ xs: 12, sm: 6, md: 2 }}>
                         <Typography variant="h6" sx={{ mb: 2, fontSize: "1.1rem", fontWeight: 600 }}>
                             Услуги
                         </Typography>
@@ -122,7 +122,7 @@ export default function Footer() {
                     </Grid>
 
                     {/* Колонка 4: Контакты */}
-                    <Grid item xs={12} md={4}>
+                    <Grid size={{ xs: 12, md: 4 }}>
                         <Typography variant="h6" sx={{ mb: 2, fontSize: "1.1rem", fontWeight: 600 }}>
                             Контакты
                         </Typography>

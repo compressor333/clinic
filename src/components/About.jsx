@@ -12,8 +12,10 @@ import {
     TextField,
     Card,
     CardContent,
+    Fade,
+    Grow,
+    Slide,
 } from "@mui/material";
-import { motion as Motion } from "framer-motion";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -80,53 +82,6 @@ export default function Contacts() {
         },
     ];
 
-    // Анимации
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                duration: 0.6,
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
-        visible: {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            transition: {
-                duration: 0.6,
-                ease: [0.22, 1, 0.36, 1],
-            }
-        }
-    };
-
-    const cardVariants = {
-        hidden: { opacity: 0, scale: 0.9, y: 20 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            transition: {
-                duration: 0.5,
-                type: "spring",
-                damping: 15,
-                stiffness: 100,
-            }
-        },
-        hover: {
-            scale: 1.05,
-            transition: {
-                duration: 0.2,
-            }
-        }
-    };
-
     return (
         <Box
             sx={{
@@ -150,13 +105,10 @@ export default function Contacts() {
             />
 
             <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-                <Motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    {/* Заголовок */}
-                    <Motion.div variants={itemVariants}>
+                <Fade in timeout={600}>
+                    <Box>
+                        {/* Заголовок */}
+                        <Slide in direction="up" timeout={650}>
                         <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
                             <Typography
                                 variant="h2"
@@ -195,18 +147,16 @@ export default function Contacts() {
                                 }}
                             />
                         </Box>
-                    </Motion.div>
+                        </Slide>
 
-                    {/* Контактные карточки */}
-                    <Grid container spacing={3} sx={{ mb: { xs: 6, md: 8 } }}>
+                        {/* Контактные карточки */}
+                        <Grid container spacing={3} sx={{ mb: { xs: 6, md: 8 } }}>
                         {contactInfo.map((contact, index) => (
-                            <Grid item xs={12} sm={6} md={3} key={index}>
-                                <Motion.div
-                                    variants={cardVariants}
-                                    whileHover="hover"
-                                    initial="hidden"
-                                    animate="visible"
-                                    custom={index}
+                            <Grid key={index} size={{ xs: 12, sm: 6, md: 3 }}>
+                                <Grow
+                                    in
+                                    timeout={500 + index * 120}
+                                    style={{ transformOrigin: "center" }}
                                 >
                                     <Paper
                                         elevation={0}
@@ -264,15 +214,15 @@ export default function Contacts() {
                                             {contact.content}
                                         </Typography>
                                     </Paper>
-                                </Motion.div>
+                                </Grow>
                             </Grid>
                         ))}
                     </Grid>
 
                     <Grid container spacing={4}>
                         {/* Адреса филиалов */}
-                        <Grid item xs={12} md={6}>
-                            <Motion.div variants={itemVariants}>
+                        <Grid size={{ xs: 12, md: 6 }}>
+                            <Slide in direction="up" timeout={650}>
                                 <Paper
                                     elevation={0}
                                     sx={{
@@ -351,12 +301,12 @@ export default function Contacts() {
                                         Построить маршрут
                                     </Button>
                                 </Paper>
-                            </Motion.div>
+                            </Slide>
                         </Grid>
 
                         {/* Форма обратной связи */}
-                        <Grid item xs={12} md={6}>
-                            <Motion.div variants={itemVariants}>
+                        <Grid size={{ xs: 12, md: 6 }}>
+                            <Slide in direction="up" timeout={650}>
                                 <Paper
                                     elevation={0}
                                     sx={{
@@ -493,12 +443,12 @@ export default function Contacts() {
                                         </Box>
                                     </Box>
                                 </Paper>
-                            </Motion.div>
+                            </Slide>
                         </Grid>
-                    </Grid>
+                        </Grid>
 
-                    {/* Часы работы */}
-                    <Motion.div variants={itemVariants}>
+                        {/* Часы работы */}
+                        <Slide in direction="up" timeout={650}>
                         <Paper
                             elevation={0}
                             sx={{
@@ -522,8 +472,9 @@ export default function Contacts() {
                                 </Typography>
                             </Box>
                         </Paper>
-                    </Motion.div>
-                </Motion.div>
+                        </Slide>
+                    </Box>
+                </Fade>
             </Container>
         </Box>
     );

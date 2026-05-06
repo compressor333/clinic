@@ -1,12 +1,11 @@
 import React, { memo, useMemo } from "react";
-import { Box, Typography, Button, Container, Grid, Chip } from "@mui/material";
+import { Box, Typography, Button, Container, Grid, Chip, Fade, Grow, Slide } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmergencyIcon from "@mui/icons-material/Emergency";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { motion as Motion, useReducedMotion } from "framer-motion";
 
 // Выносим статические данные
 const BENEFITS = [
@@ -16,30 +15,6 @@ const BENEFITS = [
 ];
 
 const HeroSection = memo(() => {
-    const shouldReduceMotion = useReducedMotion();
-
-    // Оптимизированные варианты анимаций
-    const containerVariants = useMemo(() => ({
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                duration: shouldReduceMotion ? 0 : 0.8,
-                staggerChildren: shouldReduceMotion ? 0 : 0.15,
-                delayChildren: shouldReduceMotion ? 0 : 0.2,
-            }
-        }
-    }), [shouldReduceMotion]);
-
-    const itemVariants = useMemo(() => ({
-        hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: shouldReduceMotion ? 0 : 0.6 }
-        }
-    }), [shouldReduceMotion]);
-
     // Мемоизированные кнопки
     const ActionButtons = useMemo(() => (
         <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap", justifyContent: { xs: "center", md: "flex-start" } }}>
@@ -100,7 +75,7 @@ const HeroSection = memo(() => {
                 py: { xs: 4, md: 0 },
             }}
         >
-            {/* Градиентный фон с CSS анимацией вместо motion */}
+            {/* Градиентный фон с CSS анимацией */}
             <Box
                 sx={{
                     position: "absolute",
@@ -110,7 +85,10 @@ const HeroSection = memo(() => {
                     bottom: 0,
                     background: "radial-gradient(circle at 30% 50%, rgba(75, 123, 255, 0.2) 0%, transparent 70%)",
                     zIndex: 1,
-                    animation: shouldReduceMotion ? "none" : "pulse 8s infinite ease-in-out",
+                    animation: "pulse 8s infinite ease-in-out",
+                    "@media (prefers-reduced-motion: reduce)": {
+                        animation: "none",
+                    },
                     "@keyframes pulse": {
                         "0%, 100%": { opacity: 0.3, transform: "scale(1)" },
                         "50%": { opacity: 0.5, transform: "scale(1.1)" },
@@ -120,12 +98,8 @@ const HeroSection = memo(() => {
 
             <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
                 <Grid container spacing={{ xs: 3, md: 4 }} justifyContent="center">
-                    <Grid item xs={12} md={8} lg={7}>
-                        <Motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            animate="visible"
-                        >
+                    <Grid size={{ xs: 12, md: 8, lg: 7 }}>
+                        <Fade in timeout={800}>
                             <Box
                                 sx={{
                                     backgroundColor: "rgba(0, 0, 0, 0.4)",
@@ -145,18 +119,11 @@ const HeroSection = memo(() => {
                                     justifyContent: { xs: "center", md: "flex-start" },
                                 }}>
                                     {BENEFITS.map((benefit, index) => (
-                                        <Motion.div
+                                        <Grow
                                             key={index}
-                                            custom={index * 0.1}
-                                            variants={{
-                                                hidden: { opacity: 0, scale: 0.8, x: -20 },
-                                                visible: {
-                                                    opacity: 1,
-                                                    scale: 1,
-                                                    x: 0,
-                                                    transition: { delay: index * 0.1 }
-                                                }
-                                            }}
+                                            in
+                                            timeout={500 + index * 150}
+                                            style={{ transformOrigin: "left center" }}
                                         >
                                             <Chip
                                                 icon={benefit.icon}
@@ -167,12 +134,12 @@ const HeroSection = memo(() => {
                                                     border: "1px solid rgba(255, 255, 255, 0.2)",
                                                 }}
                                             />
-                                        </Motion.div>
+                                        </Grow>
                                     ))}
                                 </Box>
 
                                 {/* Заголовок - упрощенная анимация */}
-                                <Motion.div variants={itemVariants}>
+                                <Slide in direction="up" timeout={600}>
                                     <Typography
                                         variant="h1"
                                         sx={{
@@ -185,10 +152,10 @@ const HeroSection = memo(() => {
                                         УСПЕШНО ЛЕЧИМ<br />
                                         АЛКОГОЛИЗМ И НАРКОМАНИЮ
                                     </Typography>
-                                </Motion.div>
+                                </Slide>
 
                                 {/* Подзаголовок */}
-                                <Motion.div variants={itemVariants}>
+                                <Slide in direction="up" timeout={700}>
                                     <Typography
                                         variant="h6"
                                         sx={{
@@ -202,7 +169,7 @@ const HeroSection = memo(() => {
                                         позвоните нам. Поможем выбрать подходящее решение
                                         даже в безвыходных ситуациях
                                     </Typography>
-                                </Motion.div>
+                                </Slide>
 
                                 {ActionButtons}
 
@@ -229,7 +196,7 @@ const HeroSection = memo(() => {
                                     </Box>
                                 </Box>
                             </Box>
-                        </Motion.div>
+                        </Fade>
                     </Grid>
                 </Grid>
             </Container>
