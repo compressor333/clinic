@@ -1,12 +1,31 @@
 :root {
+  --color-primary: #4B7BFF;
+  --color-primary-light: #6E9EFF;
+  --color-primary-dark: #3A5FCC;
+  --color-primary-rgb: 75, 123, 255;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #666666;
+  --color-text-muted: #999999;
+  --color-surface: #FFFFFF;
+  --color-surface-dark: #121212;
+  --color-surface-dark-rgb: 18, 18, 18;
+  --color-white: #FFFFFF;
+  --color-white-rgb: 255, 255, 255;
+  --color-black-rgb: 0, 0, 0;
+  --color-social-whatsapp: #25D366;
+  --color-social-whatsapp-rgb: 37, 211, 102;
+  --color-social-telegram: #26A5E4;
+  --color-social-telegram-rgb: 38, 165, 228;
+  --color-social-instagram: #E1306C;
+  --color-social-instagram-rgb: 225, 48, 108;
+  --color-social-email: #EA4335;
+  --color-social-email-rgb: 234, 67, 53;
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color: var(--color-text);
+  background-color: var(--color-surface);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,13 +38,9 @@
   box-sizing: border-box;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html {
+  min-width: 320px;
+  min-height: 100%;
 }
 
 body {
@@ -35,39 +50,11 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+a {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

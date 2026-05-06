@@ -35,28 +35,32 @@ export default function Contacts() {
             title: "Телефон",
             content: "+7 (999) 123-45-67",
             link: "tel:+79991234567",
-            color: "#4B7BFF",
+            color: "var(--color-primary)",
+            colorRgb: "var(--color-primary-rgb)",
         },
         {
             icon: <WhatsAppIcon sx={{ fontSize: 32 }} />,
             title: "WhatsApp",
             content: "+7 (999) 123-45-67",
             link: "https://wa.me/79991234567",
-            color: "#25D366",
+            color: "var(--color-social-whatsapp)",
+            colorRgb: "var(--color-social-whatsapp-rgb)",
         },
         {
             icon: <TelegramIcon sx={{ fontSize: 32 }} />,
             title: "Telegram",
             content: "@support_help",
             link: "https://t.me/support_help",
-            color: "#26A5E4",
+            color: "var(--color-social-telegram)",
+            colorRgb: "var(--color-social-telegram-rgb)",
         },
         {
             icon: <EmailIcon sx={{ fontSize: 32 }} />,
             title: "Email",
             content: "info@medical-center.ru",
             link: "mailto:info@medical-center.ru",
-            color: "#EA4335",
+            color: "var(--color-social-email)",
+            colorRgb: "var(--color-social-email-rgb)",
         },
     ];
 
@@ -99,7 +103,7 @@ export default function Contacts() {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: "radial-gradient(circle at 70% 30%, rgba(75, 123, 255, 0.1) 0%, transparent 70%)",
+                    background: "radial-gradient(circle at 70% 30%, rgba(var(--color-primary-rgb), 0.1) 0%, transparent 70%)",
                     zIndex: 0,
                 }}
             />
@@ -116,7 +120,7 @@ export default function Contacts() {
                                     fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
                                     fontWeight: 700,
                                     mb: 2,
-                                    background: "linear-gradient(135deg, #4B7BFF 0%, #764ba2 100%)",
+                                    background: "linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%)",
                                     backgroundClip: "text",
                                     WebkitBackgroundClip: "text",
                                     color: "transparent",
@@ -128,7 +132,7 @@ export default function Contacts() {
                                 variant="body1"
                                 sx={{
                                     fontSize: { xs: "1rem", md: "1.2rem" },
-                                    color: "#666",
+                                    color: "var(--color-text-secondary)",
                                     maxWidth: "600px",
                                     mx: "auto",
                                 }}
@@ -140,7 +144,7 @@ export default function Contacts() {
                                 sx={{
                                     width: "80px",
                                     height: "4px",
-                                    background: "linear-gradient(90deg, #4B7BFF, #764ba2)",
+                                    background: "linear-gradient(90deg, var(--color-primary), var(--color-primary-light))",
                                     borderRadius: "2px",
                                     mx: "auto",
                                     mt: 2,
@@ -163,15 +167,15 @@ export default function Contacts() {
                                         sx={{
                                             p: 3,
                                             textAlign: "center",
-                                            backgroundColor: "rgba(255, 255, 255, 0.95)",
+                                            backgroundColor: "rgba(var(--color-white-rgb), 0.95)",
                                             backdropFilter: "blur(10px)",
                                             borderRadius: "20px",
-                                            border: "1px solid rgba(75, 123, 255, 0.2)",
+                                            border: "1px solid rgba(var(--color-primary-rgb), 0.2)",
                                             transition: "all 0.3s ease",
                                             cursor: "pointer",
                                             "&:hover": {
                                                 transform: "translateY(-8px)",
-                                                boxShadow: "0 12px 30px rgba(75, 123, 255, 0.2)",
+                                                boxShadow: "0 12px 30px rgba(var(--color-primary-rgb), 0.2)",
                                                 border: `1px solid ${contact.color}`,
                                             },
                                         }}
@@ -182,7 +186,7 @@ export default function Contacts() {
                                                 width: 70,
                                                 height: 70,
                                                 borderRadius: "50%",
-                                                background: `linear-gradient(135deg, ${contact.color}20, ${contact.color}40)`,
+                                                background: `linear-gradient(135deg, rgba(${contact.colorRgb}, 0.12), rgba(${contact.colorRgb}, 0.24))`,
                                                 display: "flex",
                                                 alignItems: "center",
                                                 justifyContent: "center",
@@ -199,7 +203,7 @@ export default function Contacts() {
                                             sx={{
                                                 fontWeight: 600,
                                                 mb: 1,
-                                                color: "#1a1a1a",
+                                                color: "var(--color-text)",
                                             }}
                                         >
                                             {contact.title}
@@ -207,7 +211,7 @@ export default function Contacts() {
                                         <Typography
                                             variant="body2"
                                             sx={{
-                                                color: "#666",
+                                                color: "var(--color-text-secondary)",
                                                 wordBreak: "break-word",
                                             }}
                                         >
@@ -227,15 +231,15 @@ export default function Contacts() {
                                     elevation={0}
                                     sx={{
                                         p: { xs: 3, md: 4 },
-                                        backgroundColor: "rgba(255, 255, 255, 0.95)",
+                                        backgroundColor: "rgba(var(--color-white-rgb), 0.95)",
                                         backdropFilter: "blur(10px)",
                                         borderRadius: "24px",
-                                        border: "1px solid rgba(75, 123, 255, 0.2)",
+                                        border: "1px solid rgba(var(--color-primary-rgb), 0.2)",
                                         height: "100%",
                                     }}
                                 >
                                     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 3 }}>
-                                        <RoomIcon sx={{ color: "#4B7BFF", fontSize: 32 }} />
+                                        <RoomIcon sx={{ color: "var(--color-primary)", fontSize: 32 }} />
                                         <Typography variant="h5" sx={{ fontWeight: 600 }}>
                                             Наши филиалы
                                         </Typography>
@@ -250,31 +254,31 @@ export default function Contacts() {
                                                         variant="h6"
                                                         sx={{
                                                             fontWeight: 600,
-                                                            color: "#4B7BFF",
+                                                            color: "var(--color-primary)",
                                                             mb: 1,
                                                         }}
                                                     >
                                                         {address.city}
                                                     </Typography>
                                                     <Box sx={{ display: "flex", gap: 1, mb: 1, alignItems: "flex-start" }}>
-                                                        <LocationOnIcon sx={{ fontSize: 18, color: "#666", mt: 0.3 }} />
-                                                        <Typography variant="body2" sx={{ color: "#666" }}>
+                                                        <LocationOnIcon sx={{ fontSize: 18, color: "var(--color-text-secondary)", mt: 0.3 }} />
+                                                        <Typography variant="body2" sx={{ color: "var(--color-text-secondary)" }}>
                                                             {address.address}
                                                         </Typography>
                                                     </Box>
                                                     {address.metro && (
                                                         <Box sx={{ display: "flex", gap: 1, mb: 1 }}>
-                                                            <Typography variant="body2" sx={{ color: "#4B7BFF" }}>
+                                                            <Typography variant="body2" sx={{ color: "var(--color-primary)" }}>
                                                                 📍
                                                             </Typography>
-                                                            <Typography variant="body2" sx={{ color: "#666" }}>
+                                                            <Typography variant="body2" sx={{ color: "var(--color-text-secondary)" }}>
                                                                 {address.metro}
                                                             </Typography>
                                                         </Box>
                                                     )}
                                                     <Box sx={{ display: "flex", gap: 1 }}>
-                                                        <LocalPhoneIcon sx={{ fontSize: 18, color: "#666" }} />
-                                                        <Typography variant="body2" sx={{ color: "#666" }}>
+                                                        <LocalPhoneIcon sx={{ fontSize: 18, color: "var(--color-text-secondary)" }} />
+                                                        <Typography variant="body2" sx={{ color: "var(--color-text-secondary)" }}>
                                                             {address.phone}
                                                         </Typography>
                                                     </Box>
@@ -288,13 +292,13 @@ export default function Contacts() {
                                         fullWidth
                                         sx={{
                                             mt: 3,
-                                            borderColor: "#4B7BFF",
-                                            color: "#4B7BFF",
+                                            borderColor: "var(--color-primary)",
+                                            color: "var(--color-primary)",
                                             borderRadius: "50px",
                                             py: 1.2,
                                             "&:hover": {
-                                                borderColor: "#3a62cc",
-                                                backgroundColor: "rgba(75, 123, 255, 0.1)",
+                                                borderColor: "var(--color-primary-dark)",
+                                                backgroundColor: "rgba(var(--color-primary-rgb), 0.1)",
                                             }
                                         }}
                                     >
@@ -311,15 +315,15 @@ export default function Contacts() {
                                     elevation={0}
                                     sx={{
                                         p: { xs: 3, md: 4 },
-                                        backgroundColor: "rgba(255, 255, 255, 0.95)",
+                                        backgroundColor: "rgba(var(--color-white-rgb), 0.95)",
                                         backdropFilter: "blur(10px)",
                                         borderRadius: "24px",
-                                        border: "1px solid rgba(75, 123, 255, 0.2)",
+                                        border: "1px solid rgba(var(--color-primary-rgb), 0.2)",
                                         height: "100%",
                                     }}
                                 >
                                     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 3 }}>
-                                        <SendIcon sx={{ color: "#4B7BFF", fontSize: 32 }} />
+                                        <SendIcon sx={{ color: "var(--color-primary)", fontSize: 32 }} />
                                         <Typography variant="h5" sx={{ fontWeight: 600 }}>
                                             Написать нам
                                         </Typography>
@@ -335,7 +339,7 @@ export default function Contacts() {
                                                 sx: {
                                                     borderRadius: "12px",
                                                     "&:hover": {
-                                                        borderColor: "#4B7BFF",
+                                                        borderColor: "var(--color-primary)",
                                                     },
                                                 },
                                             }}
@@ -369,14 +373,14 @@ export default function Contacts() {
                                             fullWidth
                                             endIcon={<SendIcon />}
                                             sx={{
-                                                background: "linear-gradient(45deg, #4B7BFF 30%, #6E9EFF 90%)",
+                                                background: "linear-gradient(45deg, var(--color-primary) 30%, var(--color-primary-light) 90%)",
                                                 borderRadius: "50px",
                                                 py: 1.5,
                                                 fontSize: "1rem",
                                                 "&:hover": {
-                                                    background: "linear-gradient(45deg, #3A5FCC 30%, #4B7BFF 90%)",
+                                                    background: "linear-gradient(45deg, var(--color-primary-dark) 30%, var(--color-primary) 90%)",
                                                     transform: "translateY(-2px)",
-                                                    boxShadow: "0 8px 20px rgba(75, 123, 255, 0.4)",
+                                                    boxShadow: "0 8px 20px rgba(var(--color-primary-rgb), 0.4)",
                                                 },
                                                 transition: "all 0.3s ease",
                                             }}
@@ -388,17 +392,17 @@ export default function Contacts() {
                                     <Divider sx={{ my: 3 }} />
 
                                     <Box sx={{ textAlign: "center" }}>
-                                        <Typography variant="body2" sx={{ color: "#666", mb: 2 }}>
+                                        <Typography variant="body2" sx={{ color: "var(--color-text-secondary)", mb: 2 }}>
                                             Или свяжитесь с нами в соцсетях
                                         </Typography>
                                         <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
                                             <IconButton
                                                 sx={{
-                                                    backgroundColor: "rgba(37, 211, 102, 0.1)",
-                                                    color: "#25D366",
+                                                    backgroundColor: "rgba(var(--color-social-whatsapp-rgb), 0.1)",
+                                                    color: "var(--color-social-whatsapp)",
                                                     "&:hover": {
-                                                        backgroundColor: "#25D366",
-                                                        color: "white",
+                                                        backgroundColor: "var(--color-social-whatsapp)",
+                                                        color: "var(--color-white)",
                                                         transform: "scale(1.1)",
                                                     },
                                                     transition: "all 0.3s ease",
@@ -410,11 +414,11 @@ export default function Contacts() {
                                             </IconButton>
                                             <IconButton
                                                 sx={{
-                                                    backgroundColor: "rgba(38, 165, 228, 0.1)",
-                                                    color: "#26A5E4",
+                                                    backgroundColor: "rgba(var(--color-social-telegram-rgb), 0.1)",
+                                                    color: "var(--color-social-telegram)",
                                                     "&:hover": {
-                                                        backgroundColor: "#26A5E4",
-                                                        color: "white",
+                                                        backgroundColor: "var(--color-social-telegram)",
+                                                        color: "var(--color-white)",
                                                         transform: "scale(1.1)",
                                                     },
                                                     transition: "all 0.3s ease",
@@ -426,11 +430,11 @@ export default function Contacts() {
                                             </IconButton>
                                             <IconButton
                                                 sx={{
-                                                    backgroundColor: "rgba(225, 48, 108, 0.1)",
-                                                    color: "#E1306C",
+                                                    backgroundColor: "rgba(var(--color-social-instagram-rgb), 0.1)",
+                                                    color: "var(--color-social-instagram)",
                                                     "&:hover": {
-                                                        backgroundColor: "#E1306C",
-                                                        color: "white",
+                                                        backgroundColor: "var(--color-social-instagram)",
+                                                        color: "var(--color-white)",
                                                         transform: "scale(1.1)",
                                                     },
                                                     transition: "all 0.3s ease",
@@ -454,20 +458,20 @@ export default function Contacts() {
                             sx={{
                                 mt: 4,
                                 p: { xs: 2, md: 3 },
-                                backgroundColor: "rgba(75, 123, 255, 0.05)",
+                                backgroundColor: "rgba(var(--color-primary-rgb), 0.05)",
                                 borderRadius: "20px",
                                 textAlign: "center",
                             }}
                         >
                             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, flexWrap: "wrap" }}>
-                                <AccessTimeIcon sx={{ color: "#4B7BFF" }} />
+                                <AccessTimeIcon sx={{ color: "var(--color-primary)" }} />
                                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
                                     Режим работы:
                                 </Typography>
-                                <Typography variant="body1" sx={{ color: "#666" }}>
+                                <Typography variant="body1" sx={{ color: "var(--color-text-secondary)" }}>
                                     Ежедневно, круглосуточно | Без выходных
                                 </Typography>
-                                <Typography variant="body2" sx={{ color: "#4B7BFF", ml: 1 }}>
+                                <Typography variant="body2" sx={{ color: "var(--color-primary)", ml: 1 }}>
                                     Анонимно | Конфиденциально
                                 </Typography>
                             </Box>

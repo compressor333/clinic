@@ -32,11 +32,11 @@ export default function Footer() {
             component="footer"
             sx={{
                 position: "relative",
-                backgroundColor: "rgba(18, 18, 18, 0.95)",
+                backgroundColor: "rgba(var(--color-surface-dark-rgb), 0.95)",
                 backdropFilter: "blur(10px)",
-                color: "white",
+                color: "var(--color-white)",
                 mt: 8,
-                borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+                borderTop: "1px solid rgba(var(--color-white-rgb), 0.1)",
             }}
         >
             {/* Основная часть футера */}
@@ -52,7 +52,7 @@ export default function Footer() {
                             </Typography>
                         </Box>
 
-                        <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)", mb: 2, lineHeight: 1.7 }}>
+                        <Typography variant="body2" sx={{ color: "rgba(var(--color-white-rgb), 0.7)", mb: 2, lineHeight: 1.7 }}>
                             Ваше здоровье — наша главная ценность. Мы помогаем людям
                             вернуться к полноценной жизни и избавиться от зависимостей
                             с гарантией результата.
@@ -60,16 +60,16 @@ export default function Footer() {
 
                         {/* Социальные сети */}
                         <Box sx={{ display: "flex", gap: 1 }}>
-                            <IconButton sx={{ color: "white", "&:hover": { color: "#4B7BFF" } }}>
+                            <IconButton sx={{ color: "var(--color-white)", "&:hover": { color: "var(--color-primary)" } }}>
                                 <Facebook />
                             </IconButton>
-                            <IconButton sx={{ color: "white", "&:hover": { color: "#4B7BFF" } }}>
+                            <IconButton sx={{ color: "var(--color-white)", "&:hover": { color: "var(--color-primary)" } }}>
                                 <Instagram />
                             </IconButton>
-                            <IconButton sx={{ color: "white", "&:hover": { color: "#4B7BFF" } }}>
+                            <IconButton sx={{ color: "var(--color-white)", "&:hover": { color: "var(--color-primary)" } }}>
                                 <Telegram />
                             </IconButton>
-                            <IconButton sx={{ color: "white", "&:hover": { color: "#4B7BFF" } }}>
+                            <IconButton sx={{ color: "var(--color-white)", "&:hover": { color: "var(--color-primary)" } }}>
                                 <YouTube />
                             </IconButton>
                         </Box>
@@ -87,9 +87,9 @@ export default function Footer() {
                                     href="#"
                                     underline="none"
                                     sx={{
-                                        color: "rgba(255,255,255,0.7)",
+                                        color: "rgba(var(--color-white-rgb), 0.7)",
                                         fontSize: "0.95rem",
-                                        "&:hover": { color: "#4B7BFF" },
+                                        "&:hover": { color: "var(--color-primary)" },
                                     }}
                                 >
                                     {text}
@@ -110,9 +110,9 @@ export default function Footer() {
                                     href="#"
                                     underline="none"
                                     sx={{
-                                        color: "rgba(255,255,255,0.7)",
+                                        color: "rgba(var(--color-white-rgb), 0.7)",
                                         fontSize: "0.95rem",
-                                        "&:hover": { color: "#4B7BFF" },
+                                        "&:hover": { color: "var(--color-primary)" },
                                     }}
                                 >
                                     {text}
@@ -130,12 +130,12 @@ export default function Footer() {
                         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                             {/* Телефон */}
                             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                                <Phone sx={{ color: "#4B7BFF", fontSize: 20 }} />
+                                <Phone sx={{ color: "var(--color-primary)", fontSize: 20 }} />
                                 <Box>
-                                    <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.5)" }}>
+                                    <Typography variant="body2" sx={{ color: "rgba(var(--color-white-rgb), 0.5)" }}>
                                         Круглосуточно
                                     </Typography>
-                                    <Link href="tel:+74951234567" underline="none" sx={{ color: "white", fontWeight: 500 }}>
+                                    <Link href="tel:+74951234567" underline="none" sx={{ color: "var(--color-white)", fontWeight: 500 }}>
                                         +7 (495) 123-45-67
                                     </Link>
                                 </Box>
@@ -143,24 +143,24 @@ export default function Footer() {
 
                             {/* Email */}
                             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                                <Email sx={{ color: "#4B7BFF", fontSize: 20 }} />
-                                <Link href="mailto:info@vimas.ru" underline="none" sx={{ color: "white" }}>
+                                <Email sx={{ color: "var(--color-primary)", fontSize: 20 }} />
+                                <Link href="mailto:info@vimas.ru" underline="none" sx={{ color: "var(--color-white)" }}>
                                     info@vimas.ru
                                 </Link>
                             </Box>
 
                             {/* Адрес */}
                             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                                <LocationOn sx={{ color: "#4B7BFF", fontSize: 20 }} />
-                                <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.8)" }}>
+                                <LocationOn sx={{ color: "var(--color-primary)", fontSize: 20 }} />
+                                <Typography variant="body2" sx={{ color: "rgba(var(--color-white-rgb), 0.8)" }}>
                                     г. Москва, ул. Примерная, д. 123
                                 </Typography>
                             </Box>
 
                             {/* Режим работы */}
                             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                                <AccessTime sx={{ color: "#4B7BFF", fontSize: 20 }} />
-                                <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.8)" }}>
+                                <AccessTime sx={{ color: "var(--color-primary)", fontSize: 20 }} />
+                                <Typography variant="body2" sx={{ color: "rgba(var(--color-white-rgb), 0.8)" }}>
                                     Круглосуточно, без выходных
                                 </Typography>
                             </Box>
@@ -174,10 +174,10 @@ export default function Footer() {
                             endIcon={<ArrowForward />}
                             sx={{
                                 mt: 3,
-                                backgroundColor: "#4B7BFF",
-                                color: "white",
+                                backgroundColor: "var(--color-primary)",
+                                color: "var(--color-white)",
                                 "&:hover": {
-                                    backgroundColor: "#3A5FCC",
+                                    backgroundColor: "var(--color-primary-dark)",
                                 },
                             }}
                         >
@@ -188,7 +188,7 @@ export default function Footer() {
             </Container>
 
             {/* Разделитель */}
-            <Divider sx={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }} />
+            <Divider sx={{ backgroundColor: "rgba(var(--color-white-rgb), 0.1)" }} />
 
             {/* Нижняя часть футера */}
             <Container maxWidth="lg">
@@ -202,7 +202,7 @@ export default function Footer() {
                         gap: 2,
                     }}
                 >
-                    <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.5)" }}>
+                    <Typography variant="body2" sx={{ color: "rgba(var(--color-white-rgb), 0.5)" }}>
                         © {currentYear} Клиника Вимас. Все права защищены.
                     </Typography>
 
@@ -210,14 +210,14 @@ export default function Footer() {
                         <Link
                             href="#"
                             underline="none"
-                            sx={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", "&:hover": { color: "#4B7BFF" } }}
+                            sx={{ color: "rgba(var(--color-white-rgb), 0.5)", fontSize: "0.85rem", "&:hover": { color: "var(--color-primary)" } }}
                         >
                             Политика конфиденциальности
                         </Link>
                         <Link
                             href="#"
                             underline="none"
-                            sx={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", "&:hover": { color: "#4B7BFF" } }}
+                            sx={{ color: "rgba(var(--color-white-rgb), 0.5)", fontSize: "0.85rem", "&:hover": { color: "var(--color-primary)" } }}
                         >
                             Пользовательское соглашение
                         </Link>

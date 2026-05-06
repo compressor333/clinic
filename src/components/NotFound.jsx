@@ -26,7 +26,7 @@ function NotFoundPage() {
                     position: 'absolute',
                     width: '200%',
                     height: '200%',
-                    background: 'radial-gradient(circle, rgba(75, 123, 255, 0.1) 1px, transparent 1px)',
+                    background: 'radial-gradient(circle, rgba(var(--color-primary-rgb), 0.1) 1px, transparent 1px)',
                     backgroundSize: '50px 50px',
                     animation: 'notFoundGrid 20s linear infinite',
                     '@keyframes notFoundGrid': {
@@ -46,12 +46,12 @@ function NotFoundPage() {
                             textAlign: 'center',
                             position: 'relative',
                             zIndex: 1,
-                            backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                            backgroundColor: 'rgba(var(--color-white-rgb), 0.7)',
                             backdropFilter: 'blur(10px)',
                             borderRadius: { xs: 2, md: 4 },
                             padding: { xs: 3, md: 6 },
-                            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-                            border: '1px solid rgba(255, 255, 255, 0.3)',
+                            boxShadow: '0 8px 32px rgba(var(--color-black-rgb), 0.1)',
+                            border: '1px solid rgba(var(--color-white-rgb), 0.3)',
                             '&::before': {
                                 content: '""',
                                 position: 'absolute',
@@ -60,7 +60,7 @@ function NotFoundPage() {
                                 right: 0,
                                 bottom: 0,
                                 borderRadius: 'inherit',
-                                background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)',
+                                background: 'linear-gradient(135deg, rgba(var(--color-white-rgb), 0.4) 0%, rgba(var(--color-white-rgb), 0.1) 100%)',
                                 zIndex: -1,
                             }
                         }}
@@ -69,7 +69,7 @@ function NotFoundPage() {
                             <ErrorOutlineIcon
                                 sx={{
                                     fontSize: { xs: 80, md: 120 },
-                                    color: '#4B7BFF',
+                                    color: 'var(--color-primary)',
                                     mb: 2,
                                     transition: 'transform 0.3s ease',
                                     '&:hover': {
@@ -85,7 +85,7 @@ function NotFoundPage() {
                                 sx={{
                                     fontSize: { xs: '4rem', md: '6rem' },
                                     fontWeight: 800,
-                                    background: 'linear-gradient(135deg, #4B7BFF 0%, #764ba2 100%)',
+                                    background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%)',
                                     backgroundClip: 'text',
                                     WebkitBackgroundClip: 'text',
                                     color: 'transparent',
@@ -102,7 +102,7 @@ function NotFoundPage() {
                                 sx={{
                                     fontSize: { xs: '1.5rem', md: '2rem' },
                                     fontWeight: 600,
-                                    color: '#1a1a1a',
+                                    color: 'var(--color-text)',
                                     mb: 2,
                                 }}
                             >
@@ -115,7 +115,7 @@ function NotFoundPage() {
                                 variant="body1"
                                 sx={{
                                     fontSize: { xs: '0.9rem', md: '1.1rem' },
-                                    color: '#666',
+                                    color: 'var(--color-text-secondary)',
                                     mb: 4,
                                     maxWidth: '500px',
                                     mx: 'auto',
@@ -140,13 +140,13 @@ function NotFoundPage() {
                                     startIcon={<HomeIcon />}
                                     onClick={() => navigate('/')}
                                     sx={{
-                                        backgroundColor: '#4B7BFF',
+                                        backgroundColor: 'var(--color-primary)',
                                         px: { xs: 3, md: 4 },
                                         py: { xs: 1, md: 1.5 },
                                         fontSize: { xs: '0.9rem', md: '1rem' },
                                         transition: 'transform 0.2s ease, background-color 0.2s ease',
                                         '&:hover': {
-                                            backgroundColor: '#3a62cc',
+                                            backgroundColor: 'var(--color-primary-dark)',
                                             transform: 'scale(1.05)',
                                         },
                                         '&:active': {
@@ -164,15 +164,15 @@ function NotFoundPage() {
                                     startIcon={<ArrowBackIcon />}
                                     onClick={() => navigate(-1)}
                                     sx={{
-                                        borderColor: '#4B7BFF',
-                                        color: '#4B7BFF',
+                                        borderColor: 'var(--color-primary)',
+                                        color: 'var(--color-primary)',
                                         px: { xs: 3, md: 4 },
                                         py: { xs: 1, md: 1.5 },
                                         fontSize: { xs: '0.9rem', md: '1rem' },
                                         transition: 'transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease',
                                         '&:hover': {
-                                            borderColor: '#3a62cc',
-                                            backgroundColor: 'rgba(75, 123, 255, 0.1)',
+                                            borderColor: 'var(--color-primary-dark)',
+                                            backgroundColor: 'rgba(var(--color-primary-rgb), 0.1)',
                                             transform: 'scale(1.05)',
                                         },
                                         '&:active': {
@@ -191,7 +191,7 @@ function NotFoundPage() {
                                 sx={{
                                     display: 'block',
                                     mt: 4,
-                                    color: '#999',
+                                    color: 'var(--color-text-muted)',
                                     fontSize: { xs: '0.7rem', md: '0.8rem' },
                                 }}
                             >

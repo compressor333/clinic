@@ -150,10 +150,10 @@ export default function Navigation() {
                 elevation={2}
                 sx={{
                     backdropFilter: "blur(30px)",
-                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                    color: '#1a1a1a',
+                    backgroundColor: 'rgba(var(--color-white-rgb), 0.95)',
+                    color: 'var(--color-text)',
                     top: { xs: "56px", md: "64px" },
-                    borderBottom: '1px solid rgba(75, 123, 255, 0.2)',
+                    borderBottom: '1px solid rgba(var(--color-primary-rgb), 0.2)',
                 }}
             >
                 <Toolbar sx={{ display: 'flex', minHeight: { xs: '56px', md: '64px' } }}>
@@ -164,7 +164,7 @@ export default function Navigation() {
                         alignItems: 'center',
                         gap: 1
                     }}>
-                        <AccessTimeIcon sx={{ color: '#4B7BFF', fontSize: 20 }} />
+                        <AccessTimeIcon sx={{ color: 'var(--color-primary)', fontSize: 20 }} />
                         <Typography variant="body2" sx={{ fontWeight: 500 }}>
                             Круглосуточно
                         </Typography>
@@ -173,8 +173,8 @@ export default function Navigation() {
                             size="small"
                             sx={{
                                 ml: 1,
-                                backgroundColor: '#4B7BFF',
-                                color: 'white',
+                                backgroundColor: 'var(--color-primary)',
+                                color: 'var(--color-white)',
                                 fontSize: '0.7rem',
                                 height: '20px'
                             }}
@@ -195,13 +195,13 @@ export default function Navigation() {
                                     onClick={(e) => handleMenuClick(e, item)}
                                     sx={{
                                         fontWeight: 600,
-                                        color: '#1a1a1a',
+                                        color: 'var(--color-text)',
                                         px: 2,
                                         py: 1,
                                         borderRadius: '8px',
-                                        backgroundColor: openItemId === item.id ? 'rgba(75, 123, 255, 0.08)' : 'transparent',
+                                        backgroundColor: openItemId === item.id ? 'rgba(var(--color-primary-rgb), 0.08)' : 'transparent',
                                         '&:hover': {
-                                            backgroundColor: 'rgba(75, 123, 255, 0.08)',
+                                            backgroundColor: 'rgba(var(--color-primary-rgb), 0.08)',
                                         }
                                     }}
                                     startIcon={item.icon}
@@ -236,11 +236,11 @@ export default function Navigation() {
                                             sx: {
                                                 mt: 1,
                                                 minWidth: 220,
-                                                backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                                                backgroundColor: 'rgba(var(--color-white-rgb), 0.98)',
                                                 backdropFilter: 'blur(10px)',
                                                 borderRadius: '12px',
-                                                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
-                                                border: '1px solid rgba(75, 123, 255, 0.2)',
+                                                boxShadow: '0 10px 30px rgba(var(--color-black-rgb), 0.2)',
+                                                border: '1px solid rgba(var(--color-primary-rgb), 0.2)',
                                             }
                                         }}
                                     >
@@ -250,9 +250,9 @@ export default function Navigation() {
                                                 sx={{
                                                     px: 2,
                                                     py: 1,
-                                                    color: '#4B7BFF',
+                                                    color: 'var(--color-primary)',
                                                     fontWeight: 600,
-                                                    borderBottom: '1px solid rgba(75, 123, 255, 0.2)',
+                                                    borderBottom: '1px solid rgba(var(--color-primary-rgb), 0.2)',
                                                     mb: 0.5
                                                 }}
                                             >
@@ -271,7 +271,7 @@ export default function Navigation() {
                                                         textDecoration: 'none',
                                                         color: 'inherit',
                                                         '&:hover': {
-                                                            backgroundColor: 'rgba(75, 123, 255, 0.08)',
+                                                            backgroundColor: 'rgba(var(--color-primary-rgb), 0.08)',
                                                         }
                                                     }}
                                                 >
@@ -298,13 +298,13 @@ export default function Navigation() {
                             variant="contained"
                             startIcon={<EmergencyIcon />}
                             sx={{
-                                backgroundColor: '#4B7BFF',
-                                color: 'white',
+                                backgroundColor: 'var(--color-primary)',
+                                color: 'var(--color-white)',
                                 display: { xs: 'none', md: 'inline-flex' },
                                 borderRadius: '50px',
                                 px: 3,
                                 '&:hover': {
-                                    backgroundColor: '#3A5FCC',
+                                    backgroundColor: 'var(--color-primary-dark)',
                                 }
                             }}
                         >
@@ -317,16 +317,16 @@ export default function Navigation() {
                             startIcon={<PhoneIcon />}
                             href="tel:+79999999999"
                             sx={{
-                                color: '#1a1a1a',
-                                borderColor: '#4B7BFF',
+                                color: 'var(--color-text)',
+                                borderColor: 'var(--color-primary)',
                                 borderWidth: '2px',
                                 display: { xs: 'none', md: 'inline-flex' },
                                 borderRadius: '50px',
                                 px: 3,
                                 fontWeight: 600,
                                 '&:hover': {
-                                    borderColor: '#4B7BFF',
-                                    backgroundColor: 'rgba(75, 123, 255, 0.04)',
+                                    borderColor: 'var(--color-primary)',
+                                    backgroundColor: 'rgba(var(--color-primary-rgb), 0.04)',
                                 }
                             }}
                         >
@@ -338,10 +338,10 @@ export default function Navigation() {
                             color="inherit"
                             sx={{
                                 display: { xs: 'inline-flex', md: 'none' },
-                                backgroundColor: '#4B7BFF',
-                                color: 'white',
+                                backgroundColor: 'var(--color-primary)',
+                                color: 'var(--color-white)',
                                 '&:hover': {
-                                    backgroundColor: '#3A5FCC',
+                                    backgroundColor: 'var(--color-primary-dark)',
                                 }
                             }}
                             href="tel:+79999999999"
@@ -358,7 +358,7 @@ export default function Navigation() {
                             aria-expanded={mobileOpen ? "true" : undefined}
                             sx={{
                                 display: { md: "none" },
-                                color: '#1a1a1a',
+                                color: 'var(--color-text)',
                             }}
                             onClick={handleMobileMenuOpen}
                         >
@@ -388,16 +388,16 @@ export default function Navigation() {
                     sx: {
                         width: '280px',
                         maxWidth: '100%',
-                        backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                        backgroundColor: 'rgba(var(--color-white-rgb), 0.98)',
                         backdropFilter: 'blur(10px)',
                     }
                 }}
             >
                 <Box sx={{ p: 2, pb: 1 }}>
-                    <Typography variant="overline" sx={{ color: '#4B7BFF', fontWeight: 700 }}>
+                    <Typography variant="overline" sx={{ color: 'var(--color-primary)', fontWeight: 700 }}>
                         Быстрая помощь
                     </Typography>
-                    <Typography variant="body2" sx={{ color: '#666', mb: 1.5 }}>
+                    <Typography variant="body2" sx={{ color: 'var(--color-text-secondary)', mb: 1.5 }}>
                         Круглосуточная анонимная консультация в Магадане
                     </Typography>
                     <Box sx={{ display: 'grid', gap: 1 }}>
@@ -411,12 +411,12 @@ export default function Navigation() {
                                 sx={{
                                     justifyContent: 'flex-start',
                                     textAlign: 'left',
-                                    color: isActiveLink(action.link) ? '#4B7BFF' : '#1a1a1a',
-                                    backgroundColor: isActiveLink(action.link) ? 'rgba(75, 123, 255, 0.08)' : 'rgba(75, 123, 255, 0.04)',
+                                    color: isActiveLink(action.link) ? 'var(--color-primary)' : 'var(--color-text)',
+                                    backgroundColor: isActiveLink(action.link) ? 'rgba(var(--color-primary-rgb), 0.08)' : 'rgba(var(--color-primary-rgb), 0.04)',
                                     borderRadius: '12px',
                                     py: 1,
                                     '&:hover': {
-                                        backgroundColor: 'rgba(75, 123, 255, 0.12)',
+                                        backgroundColor: 'rgba(var(--color-primary-rgb), 0.12)',
                                     },
                                 }}
                             >
@@ -424,7 +424,7 @@ export default function Navigation() {
                                     <Typography variant="body2" sx={{ fontWeight: 700, lineHeight: 1.2 }}>
                                         {action.label}
                                     </Typography>
-                                    <Typography variant="caption" sx={{ color: '#666', lineHeight: 1.2 }}>
+                                    <Typography variant="caption" sx={{ color: 'var(--color-text-secondary)', lineHeight: 1.2 }}>
                                         {action.description}
                                     </Typography>
                                 </Box>
@@ -450,7 +450,7 @@ export default function Navigation() {
                                     }}
                                 >
                                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                                        <Box sx={{ color: '#4B7BFF' }}>{item.icon}</Box>
+                                        <Box sx={{ color: 'var(--color-primary)' }}>{item.icon}</Box>
                                         <Typography variant="body1" sx={{ fontWeight: 500 }}>
                                             {item.label}
                                         </Typography>
@@ -465,7 +465,7 @@ export default function Navigation() {
 
                                 {/* Подменю с анимацией */}
                                 <Collapse in={activeSubMenu === item.id}>
-                                    <Box sx={{ backgroundColor: 'rgba(75, 123, 255, 0.04)', py: 0.5 }}>
+                                    <Box sx={{ backgroundColor: 'rgba(var(--color-primary-rgb), 0.04)', py: 0.5 }}>
                                         {item.subItems.map((subItem, subIndex) => (
                                             <MenuItem
                                                 key={subIndex}
@@ -474,12 +474,12 @@ export default function Navigation() {
                                                     pl: 5,
                                                     py: 1,
                                                     fontSize: '0.95rem',
-                                                    color: isActiveLink(subItem.link) ? '#4B7BFF' : '#666',
+                                                    color: isActiveLink(subItem.link) ? 'var(--color-primary)' : 'var(--color-text-secondary)',
                                                     fontWeight: isActiveLink(subItem.link) ? 600 : 400,
-                                                    backgroundColor: isActiveLink(subItem.link) ? 'rgba(75, 123, 255, 0.08)' : 'transparent',
+                                                    backgroundColor: isActiveLink(subItem.link) ? 'rgba(var(--color-primary-rgb), 0.08)' : 'transparent',
                                                     textDecoration: 'none',
                                                     '&:hover': {
-                                                        backgroundColor: 'rgba(75, 123, 255, 0.08)',
+                                                        backgroundColor: 'rgba(var(--color-primary-rgb), 0.08)',
                                                     }
                                                 }}
                                             >
@@ -499,15 +499,15 @@ export default function Navigation() {
                                     alignItems: 'center',
                                     py: 1.5,
                                     textDecoration: 'none',
-                                    color: isActiveLink(item.link) ? '#4B7BFF' : 'inherit',
-                                    backgroundColor: isActiveLink(item.link) ? 'rgba(75, 123, 255, 0.08)' : 'transparent',
+                                    color: isActiveLink(item.link) ? 'var(--color-primary)' : 'inherit',
+                                    backgroundColor: isActiveLink(item.link) ? 'rgba(var(--color-primary-rgb), 0.08)' : 'transparent',
                                     '&:hover': {
-                                        backgroundColor: 'rgba(75, 123, 255, 0.08)',
+                                        backgroundColor: 'rgba(var(--color-primary-rgb), 0.08)',
                                     }
                                 }}
                             >
                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                                    <Box sx={{ color: '#4B7BFF' }}>{item.icon}</Box>
+                                    <Box sx={{ color: 'var(--color-primary)' }}>{item.icon}</Box>
                                     <Typography variant="body1" sx={{ fontWeight: 500 }}>
                                         {item.label}
                                     </Typography>
@@ -527,7 +527,7 @@ export default function Navigation() {
 
                 {/* Контактная информация в мобильном меню */}
                 <Box sx={{ p: 2 }}>
-                    <Typography variant="body2" sx={{ color: '#666', mb: 1 }}>
+                    <Typography variant="body2" sx={{ color: 'var(--color-text-secondary)', mb: 1 }}>
                         Круглосуточно | Анонимно
                     </Typography>
                     <Button
@@ -536,12 +536,12 @@ export default function Navigation() {
                         startIcon={<EmergencyIcon />}
                         href="tel:+79999999999"
                         sx={{
-                            backgroundColor: '#4B7BFF',
-                            color: 'white',
+                            backgroundColor: 'var(--color-primary)',
+                            color: 'var(--color-white)',
                             borderRadius: '50px',
                             mb: 1,
                             '&:hover': {
-                                backgroundColor: '#3a62cc',
+                                backgroundColor: 'var(--color-primary-dark)',
                             }
                         }}
                     >
@@ -553,13 +553,13 @@ export default function Navigation() {
                         startIcon={<PhoneIcon />}
                         href="tel:+79999999999"
                         sx={{
-                            color: '#1a1a1a',
-                            borderColor: '#4B7BFF',
+                            color: 'var(--color-text)',
+                            borderColor: 'var(--color-primary)',
                             borderRadius: '50px',
                             fontWeight: 600,
                             '&:hover': {
-                                borderColor: '#4B7BFF',
-                                backgroundColor: 'rgba(75, 123, 255, 0.04)',
+                                borderColor: 'var(--color-primary)',
+                                backgroundColor: 'rgba(var(--color-primary-rgb), 0.04)',
                             }
                         }}
                     >
