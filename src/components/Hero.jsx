@@ -6,7 +6,7 @@ import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion as Motion, useReducedMotion } from "framer-motion";
 
 // Выносим статические данные
 const BENEFITS = [
@@ -121,7 +121,7 @@ const HeroSection = memo(() => {
             <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
                 <Grid container spacing={{ xs: 3, md: 4 }} justifyContent="center">
                     <Grid item xs={12} md={8} lg={7}>
-                        <motion.div
+                        <Motion.div
                             variants={containerVariants}
                             initial="hidden"
                             animate="visible"
@@ -145,7 +145,7 @@ const HeroSection = memo(() => {
                                     justifyContent: { xs: "center", md: "flex-start" },
                                 }}>
                                     {BENEFITS.map((benefit, index) => (
-                                        <motion.div
+                                        <Motion.div
                                             key={index}
                                             custom={index * 0.1}
                                             variants={{
@@ -167,12 +167,12 @@ const HeroSection = memo(() => {
                                                     border: "1px solid rgba(255, 255, 255, 0.2)",
                                                 }}
                                             />
-                                        </motion.div>
+                                        </Motion.div>
                                     ))}
                                 </Box>
 
                                 {/* Заголовок - упрощенная анимация */}
-                                <motion.div variants={itemVariants}>
+                                <Motion.div variants={itemVariants}>
                                     <Typography
                                         variant="h1"
                                         sx={{
@@ -185,10 +185,10 @@ const HeroSection = memo(() => {
                                         УСПЕШНО ЛЕЧИМ<br />
                                         АЛКОГОЛИЗМ И НАРКОМАНИЮ
                                     </Typography>
-                                </motion.div>
+                                </Motion.div>
 
                                 {/* Подзаголовок */}
-                                <motion.div variants={itemVariants}>
+                                <Motion.div variants={itemVariants}>
                                     <Typography
                                         variant="h6"
                                         sx={{
@@ -202,7 +202,7 @@ const HeroSection = memo(() => {
                                         позвоните нам. Поможем выбрать подходящее решение
                                         даже в безвыходных ситуациях
                                     </Typography>
-                                </motion.div>
+                                </Motion.div>
 
                                 {ActionButtons}
 
@@ -229,7 +229,7 @@ const HeroSection = memo(() => {
                                     </Box>
                                 </Box>
                             </Box>
-                        </motion.div>
+                        </Motion.div>
                     </Grid>
                 </Grid>
             </Container>

@@ -1,6 +1,6 @@
 import { Box, Typography, Button, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import HomeIcon from '@mui/icons-material/Home';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -138,7 +138,7 @@ function NotFoundPage() {
             }}
         >
             {/* Анимированный фон */}
-            <motion.div
+            <Motion.div
                 style={{
                     position: 'absolute',
                     width: '200%',
@@ -151,7 +151,7 @@ function NotFoundPage() {
             />
 
             <Container maxWidth="md">
-                <motion.div
+                <Motion.div
                     variants={containerVariants}
                     initial="initial"
                     animate="visible"
@@ -181,7 +181,7 @@ function NotFoundPage() {
                         }}
                     >
                         {/* Анимированная иконка */}
-                        <motion.div
+                        <Motion.div
                             variants={iconVariants}
                             initial="hidden"
                             animate="visible"
@@ -194,10 +194,10 @@ function NotFoundPage() {
                                     mb: 2,
                                 }}
                             />
-                        </motion.div>
+                        </Motion.div>
 
                         {/* Анимированное число 404 */}
-                        <motion.div
+                        <Motion.div
                             variants={numberVariants}
                             initial="hidden"
                             animate="visible"
@@ -216,10 +216,10 @@ function NotFoundPage() {
                             >
                                 404
                             </Typography>
-                        </motion.div>
+                        </Motion.div>
 
                         {/* Анимированный текст */}
-                        <motion.div variants={itemVariants}>
+                        <Motion.div variants={itemVariants}>
                             <Typography
                                 variant="h4"
                                 sx={{
@@ -231,9 +231,9 @@ function NotFoundPage() {
                             >
                                 Страница не найдена
                             </Typography>
-                        </motion.div>
+                        </Motion.div>
 
-                        <motion.div variants={itemVariants}>
+                        <Motion.div variants={itemVariants}>
                             <Typography
                                 variant="body1"
                                 sx={{
@@ -247,7 +247,7 @@ function NotFoundPage() {
                                 К сожалению, страница, которую вы ищете, не существует или была перемещена.
                                 Проверьте правильность введенного адреса или вернитесь на главную.
                             </Typography>
-                        </motion.div>
+                        </Motion.div>
 
                         {/* Кнопки действий с анимацией */}
                         <Box
@@ -258,7 +258,7 @@ function NotFoundPage() {
                                 flexDirection: { xs: 'column', sm: 'row' },
                             }}
                         >
-                            <motion.div
+                            <Motion.div
                                 custom={0}
                                 variants={buttonVariants}
                                 initial="hidden"
@@ -282,9 +282,9 @@ function NotFoundPage() {
                                 >
                                     На главную
                                 </Button>
-                            </motion.div>
+                            </Motion.div>
 
-                            <motion.div
+                            <Motion.div
                                 custom={1}
                                 variants={buttonVariants}
                                 initial="hidden"
@@ -310,11 +310,11 @@ function NotFoundPage() {
                                 >
                                     Вернуться назад
                                 </Button>
-                            </motion.div>
+                            </Motion.div>
                         </Box>
 
                         {/* Дополнительная информация с анимацией */}
-                        <motion.div
+                        <Motion.div
                             variants={itemVariants}
                             initial="hidden"
                             animate="visible"
@@ -331,9 +331,9 @@ function NotFoundPage() {
                             >
                                 Если вы уверены, что это ошибка, свяжитесь с нами
                             </Typography>
-                        </motion.div>
+                        </Motion.div>
                     </Box>
-                </motion.div>
+                </Motion.div>
             </Container>
         </Box>
     );
