@@ -22,10 +22,33 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import EmergencyIcon from "@mui/icons-material/Emergency";
+import HomeIcon from "@mui/icons-material/Home";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
+const mobileQuickActions = [
+    {
+        label: "Главная",
+        description: "Вернуться на главную страницу",
+        icon: <HomeIcon />,
+        link: "/",
+    },
+    {
+        label: "Адрес клиники",
+        description: "Магадан, улица Речная 25а",
+        icon: <LocationOnIcon />,
+        link: "/about",
+    },
+];
+
 const navItems = [
+    {
+        label: "Главная",
+        id: "home",
+        icon: <HomeIcon />,
+        link: "/",
+    },
     {
         label: "Алкоголизм",
         id: "alcoholism",
@@ -329,13 +352,17 @@ export default function Navigation() {
                         <IconButton
                             color="inherit"
                             edge="end"
+                            aria-label="Открыть мобильное меню"
+                            aria-controls={mobileOpen ? "mobile-menu" : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={mobileOpen ? "true" : undefined}
                             sx={{
                                 display: { md: "none" },
                                 color: '#1a1a1a',
                             }}
                             onClick={handleMobileMenuOpen}
                         >
-                            <Badge badgeContent={4} color="primary">
+                            <Badge badgeContent={navItems.length} color="primary">
                                 <MenuIcon />
                             </Badge>
                         </IconButton>
@@ -366,6 +393,48 @@ export default function Navigation() {
                     }
                 }}
             >
+                <Box sx={{ p: 2, pb: 1 }}>
+                    <Typography variant="overline" sx={{ color: '#4B7BFF', fontWeight: 700 }}>
+                        Быстрая помощь
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: '#666', mb: 1.5 }}>
+                        Круглосуточная анонимная консультация в Магадане
+                    </Typography>
+                    <Box sx={{ display: 'grid', gap: 1 }}>
+                        {mobileQuickActions.map((action) => (
+                            <Button
+                                key={action.label}
+                                component={RouterLink}
+                                to={action.link}
+                                onClick={handleMobileMenuClose}
+                                startIcon={action.icon}
+                                sx={{
+                                    justifyContent: 'flex-start',
+                                    textAlign: 'left',
+                                    color: isActiveLink(action.link) ? '#4B7BFF' : '#1a1a1a',
+                                    backgroundColor: isActiveLink(action.link) ? 'rgba(75, 123, 255, 0.08)' : 'rgba(75, 123, 255, 0.04)',
+                                    borderRadius: '12px',
+                                    py: 1,
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(75, 123, 255, 0.12)',
+                                    },
+                                }}
+                            >
+                                <Box>
+                                    <Typography variant="body2" sx={{ fontWeight: 700, lineHeight: 1.2 }}>
+                                        {action.label}
+                                    </Typography>
+                                    <Typography variant="caption" sx={{ color: '#666', lineHeight: 1.2 }}>
+                                        {action.description}
+                                    </Typography>
+                                </Box>
+                            </Button>
+                        ))}
+                    </Box>
+                </Box>
+
+                <Divider sx={{ my: 1 }} />
+
                 {navItems.map((item, itemIndex) => (
                     <Box key={item.id}>
                         {/* Если есть subItems - показываем с выпадающим меню */}
@@ -464,14 +533,33 @@ export default function Navigation() {
                     <Button
                         fullWidth
                         variant="contained"
-                        startIcon={<PhoneIcon />}
+                        startIcon={<EmergencyIcon />}
                         href="tel:+79999999999"
                         sx={{
                             backgroundColor: '#4B7BFF',
                             color: 'white',
                             borderRadius: '50px',
+                            mb: 1,
                             '&:hover': {
                                 backgroundColor: '#3a62cc',
+                            }
+                        }}
+                    >
+                        Экстренная консультация
+                    </Button>
+                    <Button
+                        fullWidth
+                        variant="outlined"
+                        startIcon={<PhoneIcon />}
+                        href="tel:+79999999999"
+                        sx={{
+                            color: '#1a1a1a',
+                            borderColor: '#4B7BFF',
+                            borderRadius: '50px',
+                            fontWeight: 600,
+                            '&:hover': {
+                                borderColor: '#4B7BFF',
+                                backgroundColor: 'rgba(75, 123, 255, 0.04)',
                             }
                         }}
                     >
