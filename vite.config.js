@@ -22,10 +22,6 @@ export default defineConfig({
             return 'ui-vendor'
           }
 
-          if (id.includes('/framer-motion/')) {
-            return 'motion-vendor'
-          }
-
           if (id.includes('/react-router') || id.includes('/@remix-run/')) {
             return 'router-vendor'
           }

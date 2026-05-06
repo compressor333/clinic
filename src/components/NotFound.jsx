@@ -1,6 +1,5 @@
-import { Box, Typography, Button, Container } from '@mui/material';
+import { Box, Typography, Button, Container, Fade, Grow, Slide, Zoom } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { motion as Motion } from 'framer-motion';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import HomeIcon from '@mui/icons-material/Home';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -8,122 +7,6 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 function NotFoundPage() {
     const navigate = useNavigate();
 
-    // Варианты анимаций
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                duration: 0.8,
-                staggerChildren: 0.15,
-                delayChildren: 0.2,
-                ease: [0.43, 0.13, 0.23, 0.96], // Кастомная кривая Безье
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                type: "spring",
-                damping: 12,
-                stiffness: 100
-            }
-        }
-    };
-
-    const iconVariants = {
-        hidden: { opacity: 0, scale: 0, rotate: -180 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            rotate: 0,
-            transition: {
-                type: "spring",
-                damping: 10,
-                stiffness: 100,
-                duration: 0.8
-            }
-        },
-        hover: {
-            scale: 1.1,
-            rotate: [0, -10, 10, -5, 5, 0],
-            transition: {
-                duration: 0.5,
-                repeat: Infinity,
-                repeatType: "reverse"
-            }
-        }
-    };
-
-    const numberVariants = {
-        hidden: { opacity: 0, scale: 0.5, y: 50 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            transition: {
-                type: "spring",
-                damping: 10,
-                stiffness: 100,
-                duration: 0.6
-            }
-        }
-    };
-
-    const buttonVariants = {
-        hidden: { opacity: 0, x: -50 },
-        visible: (custom) => ({
-            opacity: 1,
-            x: 0,
-            transition: {
-                delay: custom * 0.1,
-                type: "spring",
-                damping: 15,
-                stiffness: 100
-            }
-        }),
-        hover: {
-            scale: 1.05,
-            transition: {
-                duration: 0.2
-            }
-        },
-        tap: {
-            scale: 0.95
-        }
-    };
-
-    const backgroundVariants = {
-        animate: {
-            x: {
-                value: [0, 50, 0],
-                transition: {
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                    times: [0, 0.5, 1],
-                }
-            },
-            y: {
-                value: [0, 50, 0],
-                transition: {
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                    times: [0, 0.5, 1],
-                }
-            },
-            transition: {
-                duration: 20,
-                repeat: Infinity,
-                ease: "easeInOut",
-            }
-        }
-    };
     return (
         <Box
             sx={{
@@ -137,25 +20,27 @@ function NotFoundPage() {
                 overflow: 'hidden',
             }}
         >
-            {/* Анимированный фон */}
-            <Motion.div
-                style={{
+            {/* Анимированный фон на CSS вместо сторонней анимации */}
+            <Box
+                sx={{
                     position: 'absolute',
                     width: '200%',
                     height: '200%',
                     background: 'radial-gradient(circle, rgba(75, 123, 255, 0.1) 1px, transparent 1px)',
                     backgroundSize: '50px 50px',
+                    animation: 'notFoundGrid 20s linear infinite',
+                    '@keyframes notFoundGrid': {
+                        '0%, 100%': { transform: 'translate(0, 0)' },
+                        '50%': { transform: 'translate(50px, 50px)' },
+                    },
+                    '@media (prefers-reduced-motion: reduce)': {
+                        animation: 'none',
+                    },
                 }}
-                variants={backgroundVariants}
-                animate="animate"
             />
 
             <Container maxWidth="md">
-                <Motion.div
-                    variants={containerVariants}
-                    initial="initial"
-                    animate="visible"
-                >
+                <Fade in timeout={800}>
                     <Box
                         sx={{
                             textAlign: 'center',
@@ -180,28 +65,21 @@ function NotFoundPage() {
                             }
                         }}
                     >
-                        {/* Анимированная иконка */}
-                        <Motion.div
-                            variants={iconVariants}
-                            initial="hidden"
-                            animate="visible"
-                            whileHover="hover"
-                        >
+                        <Zoom in timeout={700} style={{ transitionDelay: '150ms' }}>
                             <ErrorOutlineIcon
                                 sx={{
                                     fontSize: { xs: 80, md: 120 },
                                     color: '#4B7BFF',
                                     mb: 2,
+                                    transition: 'transform 0.3s ease',
+                                    '&:hover': {
+                                        transform: 'scale(1.1) rotate(-6deg)',
+                                    },
                                 }}
                             />
-                        </Motion.div>
+                        </Zoom>
 
-                        {/* Анимированное число 404 */}
-                        <Motion.div
-                            variants={numberVariants}
-                            initial="hidden"
-                            animate="visible"
-                        >
+                        <Grow in timeout={700} style={{ transitionDelay: '250ms' }}>
                             <Typography
                                 variant="h1"
                                 sx={{
@@ -216,10 +94,9 @@ function NotFoundPage() {
                             >
                                 404
                             </Typography>
-                        </Motion.div>
+                        </Grow>
 
-                        {/* Анимированный текст */}
-                        <Motion.div variants={itemVariants}>
+                        <Slide in direction="up" timeout={650} style={{ transitionDelay: '350ms' }}>
                             <Typography
                                 variant="h4"
                                 sx={{
@@ -231,9 +108,9 @@ function NotFoundPage() {
                             >
                                 Страница не найдена
                             </Typography>
-                        </Motion.div>
+                        </Slide>
 
-                        <Motion.div variants={itemVariants}>
+                        <Slide in direction="up" timeout={700} style={{ transitionDelay: '450ms' }}>
                             <Typography
                                 variant="body1"
                                 sx={{
@@ -247,9 +124,8 @@ function NotFoundPage() {
                                 К сожалению, страница, которую вы ищете, не существует или была перемещена.
                                 Проверьте правильность введенного адреса или вернитесь на главную.
                             </Typography>
-                        </Motion.div>
+                        </Slide>
 
-                        {/* Кнопки действий с анимацией */}
                         <Box
                             sx={{
                                 display: 'flex',
@@ -258,14 +134,7 @@ function NotFoundPage() {
                                 flexDirection: { xs: 'column', sm: 'row' },
                             }}
                         >
-                            <Motion.div
-                                custom={0}
-                                variants={buttonVariants}
-                                initial="hidden"
-                                animate="visible"
-                                whileHover="hover"
-                                whileTap="tap"
-                            >
+                            <Grow in timeout={650} style={{ transitionDelay: '550ms' }}>
                                 <Button
                                     variant="contained"
                                     startIcon={<HomeIcon />}
@@ -275,23 +144,21 @@ function NotFoundPage() {
                                         px: { xs: 3, md: 4 },
                                         py: { xs: 1, md: 1.5 },
                                         fontSize: { xs: '0.9rem', md: '1rem' },
+                                        transition: 'transform 0.2s ease, background-color 0.2s ease',
                                         '&:hover': {
                                             backgroundColor: '#3a62cc',
+                                            transform: 'scale(1.05)',
+                                        },
+                                        '&:active': {
+                                            transform: 'scale(0.95)',
                                         },
                                     }}
                                 >
                                     На главную
                                 </Button>
-                            </Motion.div>
+                            </Grow>
 
-                            <Motion.div
-                                custom={1}
-                                variants={buttonVariants}
-                                initial="hidden"
-                                animate="visible"
-                                whileHover="hover"
-                                whileTap="tap"
-                            >
+                            <Grow in timeout={650} style={{ transitionDelay: '650ms' }}>
                                 <Button
                                     variant="outlined"
                                     startIcon={<ArrowBackIcon />}
@@ -302,24 +169,23 @@ function NotFoundPage() {
                                         px: { xs: 3, md: 4 },
                                         py: { xs: 1, md: 1.5 },
                                         fontSize: { xs: '0.9rem', md: '1rem' },
+                                        transition: 'transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease',
                                         '&:hover': {
                                             borderColor: '#3a62cc',
                                             backgroundColor: 'rgba(75, 123, 255, 0.1)',
+                                            transform: 'scale(1.05)',
+                                        },
+                                        '&:active': {
+                                            transform: 'scale(0.95)',
                                         },
                                     }}
                                 >
                                     Вернуться назад
                                 </Button>
-                            </Motion.div>
+                            </Grow>
                         </Box>
 
-                        {/* Дополнительная информация с анимацией */}
-                        <Motion.div
-                            variants={itemVariants}
-                            initial="hidden"
-                            animate="visible"
-                            transition={{ delay: 0.8 }}
-                        >
+                        <Fade in timeout={800} style={{ transitionDelay: '800ms' }}>
                             <Typography
                                 variant="caption"
                                 sx={{
@@ -331,9 +197,9 @@ function NotFoundPage() {
                             >
                                 Если вы уверены, что это ошибка, свяжитесь с нами
                             </Typography>
-                        </Motion.div>
+                        </Fade>
                     </Box>
-                </Motion.div>
+                </Fade>
             </Container>
         </Box>
     );
